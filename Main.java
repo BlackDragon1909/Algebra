@@ -1,7 +1,75 @@
-class Main {
-  public static void main(String[] args) {
-    System.out.println("Hello world!");
+import java.util.Scanner;
 
-    System.out.println("Quetzaurios");
+/*
+Fernandez Santillan Daniel
+Fragoso Aguilar Mauricio
+Quezada Lopez Quetzalli Abigail
+Velazquez Gallegos Erick Jovany
+*/
+
+class Main extends Matriz{
+  public Main (int a , int b){
+    super(a,b);
   }
+
+
+  public static void main(String[] args) {
+    Scanner leer = new Scanner(System.in);
+    String nombres[] = {"Fernandez Santillan Daniel","Fragoso Aguilar Mauricio","Quezada Lopez Quetzalli Abigail","Velazquez Gallegos Erick Jovany"};
+    for(int i=0 ; i< 4;i++){
+      System.out.println("--------------------------");
+      System.out.println(nombres[i]);
+    }
+    System.out.println("--------------------------");
+
+    
+    System.out.println("Fernandez Santillan Daniel\nFragoso Aguilar Mauricio\nQuezada Lopez Quetzalli Abigail\nVelazquez Gallegos Erick Jovany");
+    
+    for(int i=0; i<4; i++){
+      switch(i){
+        case 0:
+          System.out.println("Fernandez Santillan Daniel");
+          System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><>");
+          break;
+        case 1:
+          System.out.println("Fragoso Aguilar Mauricio");
+          System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><>");
+          break;
+        case 2:
+          System.out.println("Quezada Lopez Quetzalli Abigail");
+          System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><>");
+          break;
+        case 3:
+          System.out.println("Velazquez Gallegos Erick Jovany");
+          System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><>");
+          break;
+      }
+    }
+    
+		System.out.println("Tamaño de la matriz: ");
+    System.out.println("Ingresa fila: ");
+		int x=leer.nextInt();
+    System.out.println("Ingresa columna: ");
+    int y=leer.nextInt();
+		 Matriz mat = new Matriz(x,y);//crea objeto
+		 mat.setMatriz(rellenarMatrices(mat, mat.getNumFilas(),mat.getNumColumnas()));  
+     leer.close();
+     System.out.println(mat);  
+    
+  }
+
+
+   public static int [][] rellenarMatrices(Matriz matriz, int filas, int columnas) {
+			Scanner leer = new Scanner(System.in);
+
+			int[][] m = new int[filas][columnas];
+			for(int i=0; i<matriz.getNumFilas(); i++) {
+				for(int j=0; j<matriz.getNumColumnas(); j++) {
+					System.out.print(": ");
+					m[i][j]=leer.nextInt();
+				}
+			}
+			leer.close();
+			return m;
+		}
 }
